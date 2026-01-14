@@ -1,132 +1,225 @@
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardMedia,
+  colors,
+  CssBaseline,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
 import Header from "../components/Header";
-// import AddRecipe from "../components/AddRecipe";
 import { useNavigate } from "react-router-dom";
-
-
-
-
+import { useEffect } from "react";
 
 const StartPage = () => {
-
-
   const navigate = useNavigate();
   const ShowRecipe = () => {
     navigate("/homepage");
     console.log("button clicked!");
   };
 
+  useEffect(() => {
+    document.title = "GSCHMACK - Find Your Taste";
+  }, []);
+
   return (
     <>
-    <Header/>
-    
-    <Grid
-      item
-      xs={12}
-      sm={8}
-      md={6}
-      container
-      sx={{
-        backgroundImage: 'url("vegBack.jpg")',
-        // backgroundSize: "cover",
-        backgroundPosition: "center",
-        minHeight: "10vh",
-      }}
-    >
-      
-      <Box
-        // border={2}
-        backgroundColor="#d8e1d2ff"
-        m={5}
-        // justifyContent="center"
-        justifyItems="center"
-        // alignItems="center"
-        width={500}
+      <CssBaseline />
+
+      <Grid
         sx={{
-          backgroundColor: "rgba(26, 87, 42, 0.7)",
-          borderRadius: 5,
-          mx: "auto",
-          color: "#fff",
+          backgroundColor: "#e9f4ecff",
         }}
       >
-        <Typography variant="h4" marginTop={5}>
-          Add What You Have
-        </Typography>
+        <Header />
+        <Grid
+          container
+          justifyContent={"center"}
+          gap={5}
+          sx={{
+            mt: 5,
+            pb: -3,
+            flexDirection: { xs: "column", lg: "row", sm: "row" },
+            alignContent: { xs: "center" },
+          }}
+        >
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={3}
+            lg={3}
+            xl={3}
+            sx={{
+              backgroundColor: "#d356130f",
+              // "& label": { color: "#838383ff" },
+              boxShadow: 1,
+            }}
+          >
+            <TextField fullWidth label="Ingredient 1" />
+          </Grid>
+
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={3}
+            lg={3}
+            xl={3}
+            sx={{
+              backgroundColor: "#d356130f",
+              // "& label": { color: "#838383ff" },
+              boxShadow: 1,
+            }}
+          >
+            <TextField fullWidth label="Ingredient 2" />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={3}
+            lg={3}
+            xl={3}
+            sx={{
+              backgroundColor: "#d356130f",
+              // "& label": { color: "#838383ff" },
+              boxShadow: 1,
+            }}
+          >
+            <TextField fullWidth label="Ingredient 3" />
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={3} lg={3} xl={3}>
+            <Button
+              fullWidth
+              variant="contained"
+              sx={{
+                height: "100%",
+                backgroundColor: "#c47526a6",
+                color: "white",
+                "&:hover": {
+                  backgroundColor: "#d15918c5",
+                },
+              }}
+            >
+              Show Recipes
+            </Button>
+          </Grid>
+        </Grid>
 
         <Grid
-          display="flex"
-          flexDirection="column"
-          gap={5}
-          width={300}
-          m={5}
-          //  sx={{color: "white",}}
+          item
+          xs={12}
+          sm={6}
+          md={3}
+          lg={3}
+          xl={3}
+          container
+          sx={{
+            backgroundPosition: "center",
+            minHeight: "10vh",
+          }}
+        ></Grid>
+
+        {/*  */}
+        <Grid
+          container
+          item
+          xs={12}
+          sm={6}
+          md={3}
+          lg={3}
+          xl={3}
+          sx={{
+            display: {
+              xs: "none",
+              sm: "flex",
+            },
+          }}
         >
-          <TextField
-            id="standard-basic"
-            label="Recipe 1"
-            variant="standard"
+          <Card
             sx={{
-              "& label": { color: "white" },
-              "& .MuiInputBase-input": { color: "white" },
-              "& .MuiInput-underline:before": { borderBottomColor: "white" },
-              "& .MuiInput-underline:hover:before": {
-                borderBottomColor: "white",
-              },
-              "& .MuiInput-underline:after": { borderBottomColor: "white" },
+              maxWidth: 210,
+              m: 2,
+              ml: 5,
+              border: "1px solid #bcbabaff",
+              boxShadow: 10,
             }}
-          />
-          <TextField
-            id="standard-basic"
-            label="Recipe 2"
-            variant="standard"
+          >
+            <CardMedia
+              component="img"
+              height="350"
+              image="food1.jpg"
+              alt="Sample Image"
+            />
+          </Card>
+          <Card
             sx={{
-              "& label": { color: "white" },
-              "& .MuiInputBase-input": { color: "white" },
-              "& .MuiInput-underline:before": { borderBottomColor: "white" },
-              "& .MuiInput-underline:hover:before": {
-                borderBottomColor: "white",
-              },
-              "& .MuiInput-underline:after": { borderBottomColor: "white" },
+              maxWidth: 210,
+              m: 2,
+              border: "1px solid #bcbabaff",
+              boxShadow: 10,
             }}
-          />
-          <TextField
-            id="standard-basic"
-            label="Recipe 3"
-            variant="standard"
+          >
+            <CardMedia
+              component="img"
+              height="350"
+              image="food3.jpeg"
+              alt="Sample Image"
+            />
+          </Card>
+          <Card
             sx={{
-              "& label": { color: "white" },
-              "& .MuiInputBase-input": { color: "white" },
-              "& .MuiInput-underline:before": { borderBottomColor: "white" },
-              "& .MuiInput-underline:hover:before": {
-                borderBottomColor: "white",
-              },
-              "& .MuiInput-underline:after": { borderBottomColor: "white" },
+              maxWidth: 210,
+              m: 2,
+              border: "1px solid #bcbabaff",
+              boxShadow: 10,
             }}
-          />
+          >
+            <CardMedia
+              component="img"
+              height="350"
+              image="food4.jpg"
+              alt="Sample Image"
+            />
+          </Card>
+          <Card
+            sx={{
+              maxWidth: 210,
+              m: 2,
+              border: "1px solid #bcbabaff",
+              boxShadow: 10,
+            }}
+          >
+            <CardMedia
+              component="img"
+              height="350"
+              image="food2.avif"
+              alt="Sample Image"
+            />
+          </Card>
+          <Card
+            sx={{
+              maxWidth: 210,
+              m: 2,
+              border: "1px solid #bcbabaff",
+              boxShadow: 10,
+            }}
+          >
+            <CardMedia
+              component="img"
+              height="350"
+              image="food5.jpeg"
+              alt="Sample Image"
+            />
+          </Card>
         </Grid>
 
-        <Grid p={1} m={1}
-        onClick={ShowRecipe}
-        >
-          <Button
-            // onClick={() => navigate("/table")}
-            
-            sx={{
-              backgroundColor: "#076b21ff",
-              color: "white",
-              "&:hover": {
-                backgroundColor: "#e64a19",
-              },
-            }}
-            variant="contained"
-            >
-            Show Recipe
-          </Button>
-        </Grid>
-      </Box>
-      
-      
-    </Grid>
+        {/*  */}
+      </Grid>
     </>
   );
 };
